@@ -72,7 +72,7 @@ def extract_features_for_dir(audiofolder, featuresfolder):
     help_functions.mkdir(featuresfolder)
     for fpath in audiopaths:
         fid = os.path.splitext(os.path.basename(fpath))[0]
-        features = feature_extraction.get_mfccdd(fpath)
+        features = feature_extraction.extract_mfccdd(fpath)
         np.save(os.path.join(featuresfolder, fid), features)
     return
 
