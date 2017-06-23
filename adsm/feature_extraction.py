@@ -13,7 +13,7 @@ def extract_mfccdd(fpath, n_mfcc=13, winsize=0.25, sampling_rate=16000):
     '''
     help_functions.check_existence(fpath)
     data, sr = librosa.load(fpath, sr=sampling_rate, mono=True)
-    winlen = int(winsize * sr)
+    winlen = int(2 * winsize * sr)
     winstep = int(winlen / 2.0)
     mfccs = librosa.feature.mfcc(y=data, sr=sr, n_mfcc=n_mfcc, n_fft=winlen, hop_length=winstep)
     deltas = librosa.feature.delta(mfccs)
